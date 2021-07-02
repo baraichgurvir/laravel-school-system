@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Admin;
+
 return [
 
     /*
@@ -41,6 +43,11 @@ return [
             'provider' => 'users',
         ],
 
+        'admin' => [
+            'driver' => 'session' ,
+            'provider' => 'admin'
+        ] ,
+
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -64,12 +71,18 @@ return [
     | Supported: "database", "eloquent"
     |
     */
+ 
 
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
+
+        'admin' => [
+            'driver' => 'eloquent'  ,
+            'model' =>  Admin::class  ,
+        ]
 
         // 'users' => [
         //     'driver' => 'database',
